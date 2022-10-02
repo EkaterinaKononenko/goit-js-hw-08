@@ -10,21 +10,17 @@ const galleryDiv = document.querySelector('.gallery');
 const markup = galleryItems.reduce(
   (acc, { preview, original, description }) =>
     acc +
-    `<div class="gallery__item">
-  <a class="gallery__link" href="${original}">
-    <img
-      class="gallery__image"
-      src="${preview}"
-      data-source="${original}"
-      alt="${description}"
-    />
-  </a>
-</div>`,
+    `<a class="gallery__item" href="${original}">
+  <img class="gallery__image" src="${preview}" alt="${description}" />
+</a>`,
   ''
 );
 galleryDiv.insertAdjacentHTML('beforeend', markup);
 
-const lightbox = new SimpleLightbox('.gallery a', {
+const SimpleLightbox = window.SimpleLightbox;
+
+const lightbox = new SimpleLightbox('.gallery__item', {
   captionsData: 'alt',
   captionDelay: 250,
 });
+console.log(galleryItems);
