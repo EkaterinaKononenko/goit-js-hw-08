@@ -54,4 +54,5 @@ function onBtnSubmit() {
   if (refs.textarea.value === '' || refs.input.value === '') {
     return alert('Your form has empty fields. Add information and try again.');
   }
+  console.log(currentFormData);
 }
